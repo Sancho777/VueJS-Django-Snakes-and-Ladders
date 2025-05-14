@@ -122,7 +122,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # Vue dev server
-    "https://snakes-and-ladders-frontend.onrender.com",  # Your deployed frontend
+    "https://vuejs-django-snakes-and-ladders-1.onrender.com",  # Your deployed frontend
 ]
 
 # Allow all origins for testing (optional, not recommended in production)
