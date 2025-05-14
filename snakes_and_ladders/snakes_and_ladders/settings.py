@@ -26,7 +26,7 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
-    "snakes-and-ladders-backend.onrender.com",  # Replace with your actual Render domain
+    "vuejs-django-snakes-and-ladders.onrender.com",  # Replace with your actual Render domain
 ]
 
 
