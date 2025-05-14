@@ -26,7 +26,7 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
-    "vuejs-django-snakes-and-ladders.onrender.com",  # Replace with your actual Render domain
+    "https://vuejs-django-snakes-and-ladders.onrender.com",  # Replace with your actual Render domain
 ]
 
 
@@ -122,8 +122,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # Vue dev server
     "https://vuejs-django-snakes-and-ladders-1.onrender.com",  # Your deployed frontend
+    "http://localhost:5173",  # Vue dev server
 ]
 
 # Allow all origins for testing (optional, not recommended in production)
