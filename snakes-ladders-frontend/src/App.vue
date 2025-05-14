@@ -54,8 +54,8 @@ import axios from "axios";
 // ✅ Set baseURL depending on environment
 axios.defaults.baseURL =
   import.meta.env.MODE === "production"
-    ? "https://snakes-ladders-backend.onrender.com"
-    : "http://localhost:8000";
+    ? "https://snakes-ladders-backend.onrender.com/api"
+    : "http://localhost:8000/api";
 axios.defaults.withCredentials = true;
 
 console.log("Enviroment: ", import.meta.env.MODE);
