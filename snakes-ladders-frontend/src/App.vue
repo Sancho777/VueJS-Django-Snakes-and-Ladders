@@ -58,6 +58,8 @@ axios.defaults.baseURL =
     : "http://localhost:8000";
 axios.defaults.withCredentials = true;
 
+console.log("Enviroment: ", import.meta.env.MODE);
+
 import ChoosePlayers from "./components/ChoosePlayers.vue";
 import Board from "./components/Board.vue";
 import PlayerList from "./components/PlayerList.vue";
