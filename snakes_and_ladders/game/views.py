@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 from django.utils.decorators import method_decorator
 from .models.game_logic import Game
 
@@ -17,6 +17,7 @@ def save_game_to_session(request, game):
     request.session[SESSION_KEY] = game.serialize()
     request.session.modified = True
 
+@method_decorator(csrf_exempt, name='dispatch')
 class StartGame(APIView):
     @method_decorator(ensure_csrf_cookie)
     def post(self, request):
@@ -30,6 +31,7 @@ class StartGame(APIView):
             traceback.print_exc()
             return Response({"error": str(e)}, status=500)
 
+@method_decorator(csrf_exempt, name='dispatch')
 class GameState(APIView):
     def get(self, request):
         game = get_game_from_session(request)
@@ -37,6 +39,7 @@ class GameState(APIView):
             return Response({"error": "No game in session. Start a new game."}, status=status.HTTP_404_NOT_FOUND)
         return Response(game.serialize())
 
+@method_decorator(csrf_exempt, name='dispatch')
 class RollDice(APIView):
     def post(self, request):
         game = get_game_from_session(request)
@@ -53,6 +56,7 @@ class RollDice(APIView):
             "state": game.serialize()
         })
 
+@method_decorator(csrf_exempt, name='dispatch')
 class RestartGame(APIView):
     def post(self, request):
         game = get_game_from_session(request)

@@ -51,6 +51,15 @@
 import { ref, onMounted } from "vue";
 import axios from "axios";
 
+// ✅ Set baseURL depending on environment
+axios.defaults.baseURL =
+  import.meta.env.MODE === "production"
+    ? "https://snakes-ladders-backend.onrender.com"
+    : "http://localhost:8000";
+axios.defaults.withCredentials = true;
+
+console.log("Enviroment: ", import.meta.env.MODE);
+
 import ChoosePlayers from "./components/ChoosePlayers.vue";
 import Board from "./components/Board.vue";
 import PlayerList from "./components/PlayerList.vue";
