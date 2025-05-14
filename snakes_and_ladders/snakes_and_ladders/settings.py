@@ -126,4 +126,5 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 # Allow all origins for testing (optional, not recommended in production)
-# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
