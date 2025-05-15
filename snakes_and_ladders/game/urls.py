@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import StartGame, GameState, RollDice, RestartGame
 
+
 urlpatterns = [
     path('start/', StartGame.as_view()),
     path('state/', GameState.as_view()),

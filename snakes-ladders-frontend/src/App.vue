@@ -54,8 +54,8 @@ import axios from "axios";
 // ✅ Set baseURL depending on environment
 axios.defaults.baseURL =
   import.meta.env.MODE === "production"
-    ? "https://vuejs-django-snakes-and-ladders.onrender.com"
-    : "http://localhost:8000";
+    ? "https://vuejs-django-snakes-and-ladders.onrender.com/api"
+    : "http://localhost:8000/api";
 axios.defaults.withCredentials = true;
 
 console.log("Enviroment: ", import.meta.env.MODE);
@@ -137,7 +137,7 @@ function updateGameState(gameState) {
 async function startGame(numPlayers) {
   loading.value = true;
   try {
-    const res = await axios.post("/start/", { num_players: numPlayers });
+    const res = await axios.post("/api/start/", { num_players: numPlayers });
     if (res.data.success) {
       updateGameState(res.data.state);
       gameStarted.value = true;
@@ -156,7 +156,7 @@ async function startGame(numPlayers) {
 async function fetchGameState() {
   loading.value = true;
   try {
-    const res = await axios.get("/state/");
+    const res = await axios.get("/api/state/");
     updateGameState(res.data);
     gameStarted.value = true;
   } catch (error) {
@@ -171,7 +171,7 @@ async function rollDice() {
   if (winner.value) return;
   isRolling.value = true;
   try {
-    const res = await axios.post("/roll/");
+    const res = await axios.post("/api/roll/");
     if (res.data.success) {
       updateGameState(res.data.state);
     } else {
@@ -187,7 +187,7 @@ async function rollDice() {
 async function restartGame() {
   loading.value = true;
   try {
-    const res = await axios.post("/restart/");
+    const res = await axios.post("/api/restart/");
     if (res.data.success) {
       updateGameState(res.data.state);
       lastMove.value = null;
