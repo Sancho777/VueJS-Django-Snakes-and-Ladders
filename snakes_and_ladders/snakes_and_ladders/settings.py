@@ -143,3 +143,4 @@ CORS_ALLOWED_ORIGINS = [
 # Allow all origins for testing (optional, not recommended in production)
 # CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOW_CREDENTIALS = True
+SESSION_COOKIE_SAMESITE = "Lax"
