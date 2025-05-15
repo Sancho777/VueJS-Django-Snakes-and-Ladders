@@ -54,8 +54,8 @@ import axios from "axios";
 // ✅ Set baseURL depending on environment
 axios.defaults.baseURL =
   import.meta.env.MODE === "production"
-    ? "https://vuejs-django-snakes-and-ladders.onrender.com/api"
-    : "http://localhost:8000/api";
+    ? "https://vuejs-django-snakes-and-ladders.onrender.com"
+    : "http://localhost:8000";
 axios.defaults.withCredentials = true;
 
 console.log("Enviroment: ", import.meta.env.MODE);
